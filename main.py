@@ -1,16 +1,24 @@
-# This is a sample Python script.
+from pydantic import BaseModel
+from typing import List
+class User(BaseModel):
+    username: str
+    mail: str
+    address: str
+class Banks(BaseModel):
+    name: str
+    rating: float
+    opened: int
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class Cards(BaseModel):
+    cardholder: User
+    which_bank: List[Banks]
+    opened: int
+
+class Balance(BaseModel):
+    card: List[Cards]
+    amount: int
+    currency: int
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
